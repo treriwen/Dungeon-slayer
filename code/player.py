@@ -10,10 +10,20 @@ class Player(pygame.sprite.Sprite):
         self.image.set_colorkey([0, 0, 0])
         self.rect = self.image.get_rect()
         self.position = [x, y]
-        self.speed = 0.5
+        self.speed = 4
+        self.feet = pygame.Rect(0, 0, self.rect.width * 0.5, 6)
+        self.old_position = self.position.copy()
+
+    def save_position(self): self.old_position = self.position.copy()
 
     def update(self):
         self.rect.topleft = self.position
+        self.feet.midbottom = self.rect.midbottom
+
+    def move_back(self):
+        self.position = self.old_position
+        self.rect.topleft = self.position
+        self.feet.midbottom = self.rect.midbottom
 
     def move(self, direction):
         if direction == 'right':
