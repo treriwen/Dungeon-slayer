@@ -17,10 +17,9 @@ class Enemy(pygame.sprite.Sprite):
         self.feet = pygame.Rect(0, 0, self.rect.width * 0.5, 6)
         self.old_position = self.position.copy()
         self.next_direction = pygame.Vector2(1, 0)  # Direction initiale, par exemple vers la droite
-        self.position = pygame.Vector2(x, y)
+        self.position = [x, y]
         self.last_move_time = pygame.time.get_ticks()
         self.pause_duration = 0
-
 
 
     def save_position(self):
@@ -36,35 +35,29 @@ class Enemy(pygame.sprite.Sprite):
         self.feet.midbottom = self.rect.midbottom
 
     def move(self, walls):
-
         now = pygame.time.get_ticks()
         time_since_last_move = now - self.last_move_time
 
-        if time_since_last_move >= self.pause_duration:
-            direction = self.next_direction.normalize()
+        if time_since_last_move >= random.randint(1000, 3000):  # Choisissez une nouvelle direction aléatoirement toutes les 1 à 3 secondes
+            self.last_move_time = now
 
-            # Déterminer si l'ennemi doit s'arrêter après ce mouvement
-            should_pause = random.randint(1, 3) == 1
-            if should_pause:
-                self.pause_duration = random.randint(1000, 2000)  # Pause aléatoire entre 1 et 2 secondes
-                self.last_move_time = now
-            else:
-                self.pause_duration = 0
+            # Choisir une nouvelle direction de déplacement aléatoire
+            x_direction, y_direction = random.choice([(-1, 0), (0, -1), (1, 0), (0, 1)])
+            self.next_direction = pygame.Vector2(x_direction, y_direction).normalize()
 
-                # Déplacer l'ennemi dans la direction actuelle
-                self.position += direction * self.speed
-                self.rect.topleft = self.position
+        # Essayer de déplacer l'ennemi dans la direction actuelle
+        new_position = self.position + self.next_direction * self.speed
+        new_rect = self.image.get_rect(topleft=new_position)
 
-                # Vérifier les collisions avec les murs
-                if self.rect.collidelist(walls) != -1:
-                    # En cas de collision avec un mur, revenir à la position précédente
-                    self.position -= direction * self.speed
-                    self.rect.topleft = self.position
+        # Vérifier les collisions avec les murs
+        if new_rect.collidelist(walls) == -1:
+            self.position = new_position
+            self.rect.topleft = self.position
+        else:
+            # Si une collision avec un mur est détectée, choisir une nouvelle direction aléatoire
+            x_direction, y_direction = random.choice([(-1, 0), (0, -1), (1, 0), (0, 1)])
+            self.next_direction = pygame.Vector2(x_direction, y_direction).normalize()
 
-                    # Choisir une nouvelle direction de déplacement aléatoire
-                    self.next_direction = pygame.Vector2(1, 0).rotate(pygame.Vector2(0, 0).angle_to(direction))
-
-                self.last_move_time = now
     def get_image(self, x, y):
         image = pygame.Surface([16, 16])
         image.blit(self.sprite_sheet, (0, 0), (x, y, 16, 16))

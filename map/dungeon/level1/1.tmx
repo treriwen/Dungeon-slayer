@@ -316,7 +316,7 @@
   <object id="12" type="wallCollision" x="768.667" y="896.333" width="239" height="31.3333"/>
   <object id="13" type="wallCollision" x="992" y="688" width="15.6667" height="239.333"/>
   <object id="14" type="wallCollision" x="863.667" y="687.667" width="143.667" height="16"/>
-  <object id="15" x="864.5" y="560.5" width="15" height="143"/>
+  <object id="15" type="wallCollision" x="864.5" y="560.5" width="15" height="143"/>
   <object id="16" type="wallCollision" x="592" y="559.5" width="287.5" height="15.5"/>
   <object id="17" type="wallCollision" x="592" y="559" width="16" height="80.5"/>
   <object id="18" type="wallCollision" x="415.667" y="624" width="192.333" height="15.3333"/>
