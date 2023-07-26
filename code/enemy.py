@@ -20,6 +20,8 @@ class Enemy(pygame.sprite.Sprite):
         self.position = [x, y]
         self.last_move_time = pygame.time.get_ticks()
         self.pause_duration = 0
+        self.last_direction_change_time = pygame.time.get_ticks()
+        self.direction_change_delay = random.randint(1000, 2000)
 
 
     def save_position(self):
@@ -38,25 +40,32 @@ class Enemy(pygame.sprite.Sprite):
         now = pygame.time.get_ticks()
         time_since_last_move = now - self.last_move_time
 
-        if time_since_last_move >= random.randint(1000, 3000):  # Choisissez une nouvelle direction aléatoirement toutes les 1 à 3 secondes
+        if time_since_last_move >= random.randint(1000, 3000):  # Choose a new direction randomly every 1 to 3 seconds
             self.last_move_time = now
 
-            # Choisir une nouvelle direction de déplacement aléatoire
+            # Choose a new random direction
             x_direction, y_direction = random.choice([(-1, 0), (0, -1), (1, 0), (0, 1)])
             self.next_direction = pygame.Vector2(x_direction, y_direction).normalize()
 
-        # Essayer de déplacer l'ennemi dans la direction actuelle
+            # Reset the direction change delay
+            self.direction_change_delay = random.randint(1000, 2000)  # 1 to 2 seconds
+
+        # Check if it's time to change the direction again
+        time_since_last_direction_change = now - self.last_direction_change_time
+        if time_since_last_direction_change >= self.direction_change_delay:
+            x_direction, y_direction = random.choice([(-1, 0), (0, -1), (1, 0), (0, 1)])
+            self.next_direction = pygame.Vector2(x_direction, y_direction).normalize()
+            self.direction_change_delay = random.randint(1000, 2000)  # 1 to 2 seconds
+            self.last_direction_change_time = now
+
+        # Try to move the enemy in the current direction
         new_position = self.position + self.next_direction * self.speed
         new_rect = self.image.get_rect(topleft=new_position)
 
-        # Vérifier les collisions avec les murs
+        # Check for collisions with walls
         if new_rect.collidelist(walls) == -1:
             self.position = new_position
             self.rect.topleft = self.position
-        else:
-            # Si une collision avec un mur est détectée, choisir une nouvelle direction aléatoire
-            x_direction, y_direction = random.choice([(-1, 0), (0, -1), (1, 0), (0, 1)])
-            self.next_direction = pygame.Vector2(x_direction, y_direction).normalize()
 
     def get_image(self, x, y):
         image = pygame.Surface([16, 16])
