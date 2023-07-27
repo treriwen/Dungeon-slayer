@@ -5,64 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5130e077-e7f4-4a46-97ed-03e76bbfdb93" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/enemy/metaData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/weapon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/deft sorceress/deft sorceress.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/deft sorceress/deft sorceress.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/deft sorceress/deft sorceress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/earth elemental/EarthElementalIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/earth elemental/EarthElementalIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/earth elemental/EarthElementalIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/expert druid/expert druid.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/expert druid/expert druid.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/expert druid/expert druid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fire elemental/FireElementalIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fire elemental/FireElementalIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fire elemental/FireElementalIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/flesh golem/FleshGolemIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/flesh golem/FleshGolemIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/flesh golem/FleshGolemIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fluttering pixie/FlutteringPixieIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fluttering pixie/FlutteringPixieIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/fluttering pixie/FlutteringPixieIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/gelatinous cube/GelatinousCubeIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/gelatinous cube/GelatinousCubeIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/gelatinous cube/GelatinousCubeIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/glowing wisp/GlowingWispIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/glowing wisp/GlowingWispIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/glowing wisp/GlowingWispIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grandmaster warlock/GrandmasterWarlockIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grandmaster warlock/GrandmasterWarlockIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grandmaster warlock/GrandmasterWarlockIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grizzled treant/GrizzledTreantIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grizzled treant/GrizzledTreantIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/grizzled treant/GrizzledTreantIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/hungry mimic/HungryMimicIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/hungry mimic/HungryMimicIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/hungry mimic/HungryMimicIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/ice golem/IceGolemIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/ice golem/IceGolemIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/ice golem/IceGolemIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/iron golem/IronGolemIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/iron golem/IronGolemIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/iron golem/IronGolemIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/novice pyromancer/NovicePyromancerIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/novice pyromancer/NovicePyromancerIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/novice pyromancer/NovicePyromancerIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/skilled battlemage/SkilledBattlemageIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/skilled battlemage/SkilledBattlemageIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/skilled battlemage/SkilledBattlemageIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/venomous chimera/VenomousChimeraIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/venomous chimera/VenomousChimeraIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/venomous chimera/VenomousChimeraIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/vile witch/VileWitchIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/vile witch/VileWitchIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/vile witch/VileWitchIdle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/water elemental/WaterElementalIdle.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/water elemental/WaterElementalIdle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy/water elemental/WaterElementalIdle.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
