@@ -46,7 +46,6 @@ class GAME:
     def handle_input(self):
         pressed = pygame.key.get_pressed()
 
-
         if pressed[pygame.K_z]:
             self.player.move('top')
 
@@ -58,8 +57,6 @@ class GAME:
 
         if pressed[pygame.K_q]:
             self.player.move('left')
-
-
 
 
     def run(self):
