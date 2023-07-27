@@ -3,6 +3,7 @@ import pyscroll
 import pytmx
 from player import Player
 from enemy import Enemy
+from weapon import Weapon
 
 
 class GAME:
@@ -22,6 +23,7 @@ class GAME:
 
         self.player = Player(self.spawnPointPlayer.x, self.spawnPointPlayer.y)
         self.AdeptNecromancer = Enemy(self.spawnPointPlayer.x, self.spawnPointPlayer.y, '../enemy/adept necromancer/AdeptNecromancerIdle.png', 1000, 1, 1)
+        self.Weapon = Weapon(self.player, '../weapon/sprite/1.png', 'test', 1, 1, 1, 1)
 
         self.walls = []
         for obj in tmx_data.objects:
@@ -31,12 +33,13 @@ class GAME:
         self.groupe = pyscroll.group.PyscrollGroup(map_layer=map_layer, default_layer=1, zoom=9)
         self.groupe.add(self.player)
         self.groupe.add(self.AdeptNecromancer)
+        self.groupe.add(self.Weapon)
 
     def update(self):
         self.groupe.update()
         self.AdeptNecromancer.move(self.walls)
         for sprite in self.groupe.sprites():
-           if sprite.feet.collidelist(self.walls) > -1:
+           if hasattr(self.groupe, 'feet') and sprite.feet.collidelist(self.walls) > -1:
                sprite.move_back()
 
 

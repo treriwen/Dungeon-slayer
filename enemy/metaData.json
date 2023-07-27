@@ -1,0 +1,16 @@
+{
+  "adept_necromancer" : {
+    "name" : "adept necromancer",
+    "speed" : 1,
+    "life" : 1,
+    "sprite_sheet" : "AdeptNecromancerIdle.png",
+    "ia_type" : 1
+  },
+    "corrupted_treant" : {
+    "name" : "corrupted treant",
+    "speed" : 1,
+    "life" : 1,
+    "sprite_sheet" : "CorruptedTreantIdle.png",
+    "ia_type" : 1
+  }
+}
