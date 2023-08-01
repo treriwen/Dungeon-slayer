@@ -67,8 +67,10 @@ class GAME:
 
         while running:
 
+
             self.player.save_position()
             self.handle_input()
+
             self.update()
             self.groupe.center(self.player.rect.center)
             self.groupe.draw(self.screen)
@@ -77,6 +79,9 @@ class GAME:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        Weapon.shoot(self)
 
             clock.tick(60)
 

@@ -1,6 +1,25 @@
 import pygame
 import math
-from player import Player
+
+
+class Projectile(pygame.sprite.Sprite):
+    def __init__(self, x, y, angle):
+        super().__init__()
+        self.image = pygame.Surface((10, 10))
+        self.image.fill((255, 0, 0))  # Le projectile est un carré rouge de 10x10 pixels (vous pouvez changer l'apparence)
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+        self.angle = angle
+        self.speed = 5  # Vitesse du projectile (vous pouvez ajuster la vitesse selon vos besoins)
+
+    def update(self):
+        # Déplacer le projectile dans la direction de l'angle
+        self.rect.x += self.speed * math.cos(math.radians(self.angle))
+        self.rect.y -= self.speed * math.sin(math.radians(self.angle))  # Le sin est négatif car l'axe Y est inversé
+
+        # Si le projectile sort de l'écran, le supprimer du groupe
+        if not pygame.display.get_surface().get_rect().colliderect(self.rect):
+            self.kill()
 
 
 class Weapon(pygame.sprite.Sprite):
@@ -37,6 +56,7 @@ class Weapon(pygame.sprite.Sprite):
         angle_deg = math.degrees(angle_rad)
         angle_deg = angle_deg-90
 
+
         # Effectuer la rotation autour du centre de l'image
         self.image = pygame.transform.rotate(self.original_image, angle_deg)
         self.rect = self.image.get_rect(center=self.rect.center)
@@ -45,3 +65,17 @@ class Weapon(pygame.sprite.Sprite):
         image = pygame.Surface([32, 16])
         image.blit(self.sprite_sheet, (0, 0), (x, y, 32, 16))
         return image
+
+    def shoot(self):
+        # Obtenir les coordonnées locales de l'extrémité de l'arme
+        #tip_x = self.player.rect.centerx + math.cos(math.radians(-self.angle_deg)) * 30
+        #tip_y = self.player.rect.centery - math.sin(
+         #   math.radians(-self.angle)) * 30  # Le sin est négatif car l'axe Y est inversé
+
+        # Créer un nouveau projectile à l'extrémité de l'arme dans la direction actuelle
+        #projectile = Projectile(tip_x, tip_y, self.angle_deg)
+
+        # Ajouter le projectile au groupe de projectiles
+        #self.projectiles.add(projectile)
+        print('ok')
+
