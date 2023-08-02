@@ -67,15 +67,20 @@ class Weapon(pygame.sprite.Sprite):
         return image
 
     def shoot(self):
-        # Obtenir les coordonnées locales de l'extrémité de l'arme
-        #tip_x = self.player.rect.centerx + math.cos(math.radians(-self.angle_deg)) * 30
-        #tip_y = self.player.rect.centery - math.sin(
-         #   math.radians(-self.angle)) * 30  # Le sin est négatif car l'axe Y est inversé
 
-        # Créer un nouveau projectile à l'extrémité de l'arme dans la direction actuelle
-        #projectile = Projectile(tip_x, tip_y, self.angle_deg)
+
+        # Obtenir les coordonnées locales de la souris par rapport au joueur
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        mouse_x = mouse_x - 400
+        mouse_y = mouse_y - 300
+
+        # Calculer l'angle en radians entre le joueur et la position de la souris
+        angle_rad = math.atan2(mouse_x, mouse_y)
+        angle_deg = math.degrees(angle_rad)
+        angle_deg = angle_deg - 90
+        projectile = Projectile(0, 0, angle_deg)
 
         # Ajouter le projectile au groupe de projectiles
-        #self.projectiles.add(projectile)
+        self.projectiles.add(projectile)
         print('ok')
 
