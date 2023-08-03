@@ -3,8 +3,9 @@ import math
 
 
 class Projectile(pygame.sprite.Sprite):
-    def __init__(self, x, y, angle):
+    def __init__(self, x, y, angle, image_path):
         super().__init__()
+        self.image = pygame.image.load(image_path)
         self.image = pygame.Surface((10, 10))
         self.image.fill((255, 0, 0))  # Le projectile est un carré rouge de 10x10 pixels (vous pouvez changer l'apparence)
         self.rect = self.image.get_rect()
@@ -16,10 +17,13 @@ class Projectile(pygame.sprite.Sprite):
         # Déplacer le projectile dans la direction de l'angle
         self.rect.x += self.speed * math.cos(math.radians(self.angle))
         self.rect.y -= self.speed * math.sin(math.radians(self.angle))  # Le sin est négatif car l'axe Y est inversé
-
+        print('okokok')
         # Si le projectile sort de l'écran, le supprimer du groupe
         if not pygame.display.get_surface().get_rect().colliderect(self.rect):
             self.kill()
+
+        # Mettre à jour la position de l'image du projectile en fonction du rect
+        self.rect.center = (self.rect.x, self.rect.y)
 
 
 class Weapon(pygame.sprite.Sprite):
@@ -78,7 +82,7 @@ class Weapon(pygame.sprite.Sprite):
         angle_rad = math.atan2(mouse_x, mouse_y)
         angle_deg = math.degrees(angle_rad)
         angle_deg = angle_deg - 90
-        projectile = Projectile(0, 0, angle_deg)
+        projectile = Projectile(0, 0, angle_deg, '../weapon/sprite/bullet.png')
 
         # Ajouter le projectile au groupe de projectiles
         self.projectiles.add(projectile)

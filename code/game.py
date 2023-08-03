@@ -24,7 +24,7 @@ class GAME:
         self.player = Player(self.spawnPointPlayer.x, self.spawnPointPlayer.y)
         self.AdeptNecromancer = Enemy(self.spawnPointPlayer.x, self.spawnPointPlayer.y, '../enemy/adept necromancer/AdeptNecromancerIdle.png', 1000, 1, 1)
         self.Weapon = Weapon(self.player, '../weapon/sprite/1.png', 'test', 1, 1, 1, 1)
-
+        self.projectiles = pygame.sprite.Group()
         self.walls = []
         for obj in tmx_data.objects:
             if obj.type == 'wallCollision':
@@ -34,8 +34,10 @@ class GAME:
         self.groupe.add(self.player)
         self.groupe.add(self.AdeptNecromancer)
         self.groupe.add(self.Weapon)
+        self.groupe.add(self.projectiles)
 
     def update(self):
+
         self.groupe.update()
         self.AdeptNecromancer.move(self.walls)
         for sprite in self.groupe.sprites():
